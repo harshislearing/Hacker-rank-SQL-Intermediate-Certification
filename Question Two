@@ -14,3 +14,16 @@ HAVING
     )
 ORDER BY 
     amount_spent DESC;
+
+
+
+Explanation:
+The query joins the customer and invoice tables on the customer ID
+
+It groups the results by customer to calculate the total amount each customer spent
+
+The HAVING clause filters for customers whose total spending is ≤ 25% of the average invoice amount
+
+The ROUND function formats the amount spent to 6 decimal places
+
+Results are ordered by amount spent from high to low
