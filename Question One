@@ -10,3 +10,25 @@ GROUP BY co.country_name
 HAVING AVG(i.total_price) > (
     SELECT AVG(total_price) FROM invoice
 );
+
+
+Explanation: 
+
+1. Joins Multiple Tables:
+The query joins four tables — invoice, customer, city, and country — to link each invoice to the country of the customer.
+
+2. Groups Data by Country:
+It groups the invoice data by country_name so that calculations (like count and average) are done per country.
+
+3. Calculates Metrics per Country:
+For each country, it calculates:
+
+total_invoices: Number of invoices
+
+average_invoice_amount: Average of total_price (rounded to 6 decimal places)
+
+4. Filters with HAVING Clause:
+It only includes countries where the average invoice amount is greater than the overall global average invoice amount.
+
+5. Uses a Subquery:
+The subquery (SELECT AVG(total_price) FROM invoice) calculates the global average invoice value, which is used for comparison in the HAVING clause.
